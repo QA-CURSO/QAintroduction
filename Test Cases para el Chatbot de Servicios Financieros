@@ -1,0 +1,399 @@
+Test Cases para el Chatbot de Servicios Financieros
+
+Módulo: Interacción Inicial y Saludos
+
+Test Case ID: TSFCI-001
+Test Case Title: Mensaje de Bienvenida al Iniciar Conversación (Primera Interacción)
+Objetivo: Verificar que el chatbot muestra el mensaje de bienvenida y ofrece opciones iniciales claras al usuario en su primera interacción.
+
+Precondiciones: 
+1. Acceso al entorno de QA del chatbot.
+2. No hay sesiones activas previas del usuario.
+
+Pasos de la Prueba:
+1. Abrir la interfaz del chatbot (web, app, etc.).
+2. Observar la pantalla inicial del chatbot.
+
+Resultado Esperado: El chatbot debe mostrar un mensaje de bienvenida amigable y profesional (ej., "¡Hola! Soy tu asistente financiero virtual. ¿En qué puedo ayudarte hoy?"). Debe incluir una lista de opciones comunes (ej., "Consultar saldo", "Ver últimas transacciones", "Información de productos", "Hablar con un asesor").
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCI-002
+Test Case Title: Reconocimiento de Saludos Comunes y Respuesta Apropiada
+Objetivo: Validar que el chatbot reconoce diversas formas de saludo y responde de manera conversacional, sin romper el flujo.
+Precondiciones:
+1. Chatbot en estado inicial (nueva sesión).
+
+Pasos de la Prueba:
+1. Iniciar una conversación con el chatbot.
+2. Escribir "Hola".
+3. Escribir "Buenos días".
+4. Escribir "Qué tal".
+5. Escribir "Hola chatbot".
+
+Resultado Esperado: Para cada saludo, el chatbot debe responder con un mensaje amigable y abrir o continuar el diálogo ofreciendo ayuda (ej., "¡Hola! ¿Cómo puedo asistirte?", "Buenos días. ¿Qué operación deseas realizar?").
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Consulta de Saldo de Cuenta
+
+Test Case ID: TSFCS-001
+Test Case Title: Consulta de Saldo de Cuenta Corriente (Usuario Autenticado)
+Objetivo: Verificar que el chatbot recupera y muestra el saldo correcto de la cuenta corriente de un usuario autenticado.
+
+Precondiciones:
+1. Usuario de prueba con una cuenta corriente activa y saldo positivo (ej., $1500.00).
+2. El usuario está autenticado en el sistema del chatbot.
+
+Pasos de la Prueba:
+1. Iniciar sesión en la plataforma donde reside el chatbot (si aplica autenticación previa).
+2. Abrir el chatbot.
+3. Escribir "Cuál es el saldo de mi cuenta corriente?".
+4. Validar la respuesta del chatbot.
+
+Resultado Esperado: El chatbot debe responder con el saldo actual de la cuenta corriente del usuario en un formato claro y correcto (ej., "El saldo de tu cuenta corriente es de $1,500.00 USD."). El saldo debe coincidir exactamente con el valor en el sistema de backend.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCS-002
+Test Case Title: Consulta de Saldo de Cuenta de Ahorros (Usuario No Autenticado)
+Objetivo: Asegurar que el chatbot solicita autenticación cuando un usuario no autenticado intenta acceder a información sensible como el saldo de una cuenta de ahorros.
+Precondiciones:
+1. Chatbot en estado inicial (sin autenticación de usuario).
+Pasos de la Prueba:
+1. Iniciar una conversación con el chatbot.
+2. Escribir "Quiero saber el saldo de mi cuenta de ahorros".
+3. Observar la respuesta del chatbot.
+Resultado Esperado: El chatbot debe responder solicitando al usuario que se autentique antes de poder proporcionar el saldo (ej., "Para acceder a esa información, por favor, inicia sesión o verifica tu identidad. ¿Deseas que te guíe en el proceso?"). No debe revelar ninguna información de saldo.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCS-003
+Test Case Title: Consulta de Saldo de Tarjeta de Crédito (Múltiples Tarjetas)
+Objetivo: Verificar que el chatbot maneja correctamente la consulta de saldo cuando el usuario tiene múltiples tarjetas de crédito.
+Precondiciones:
+1. Usuario de prueba con dos o más tarjetas de crédito activas (ej., Visa y Mastercard).
+2. El usuario está autenticado.
+Pasos de la Prueba:
+1. Iniciar sesión y abrir el chatbot.
+2. Escribir "Cuál es el saldo de mi tarjeta de crédito?".
+3. Si el chatbot pide clarificación, especificar una tarjeta.
+Resultado Esperado: El chatbot debe listar las tarjetas de crédito disponibles y preguntar al usuario cuál desea consultar (ej., "¿Qué tarjeta te interesa? ¿Visa o Mastercard?"). Una vez seleccionada, debe mostrar el saldo correcto de esa tarjeta.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Consulta de Transacciones
+
+Test Case ID: TSFCST-001
+Test Case Title: Consulta de Últimas 5 Transacciones (Flujo Positivo)
+Objetivo: Validar que el chatbot puede recuperar y mostrar las últimas cinco transacciones de una cuenta específica.
+Precondiciones:
+1. Usuario autenticado con una cuenta (ej., corriente) que tenga al menos 5 transacciones recientes.
+Pasos de la Prueba:
+1. Iniciar sesión y abrir el chatbot.
+2. Escribir "¿Cuáles son mis últimas transacciones?".
+3. Si el chatbot pregunta por la cuenta, especificar "cuenta corriente".
+4. Validar la lista de transacciones proporcionadas.
+Resultado Esperado: El chatbot debe mostrar una lista clara y concisa de las últimas 5 transacciones para la cuenta corriente, incluyendo fecha, descripción y monto (ej., "Aquí están tus últimas 5 transacciones: [Fecha]: [Descripción] - $[Monto]"). La información debe coincidir con el sistema de backend.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCST-002
+Test Case Title: Consulta de Transacciones por Rango de Fecha (Formato de Fecha Flexible)
+Objetivo: Verificar que el chatbot reconoce diferentes formatos de fecha para la consulta de transacciones y devuelve los resultados correctos.
+Precondiciones:
+1. Usuario autenticado con transacciones en un rango de fechas específico (ej., del 01/06/2025 al 30/06/2025).
+Pasos de la Prueba:
+1. Iniciar sesión y abrir el chatbot.
+2. Escribir "Muéstrame las transacciones de junio".
+3. Escribir "Quiero ver mis movimientos del 1 de abril al 15 de abril de este año".
+4. Validar las transacciones.
+Resultado Esperado: Para "junio", el chatbot debe mostrar las transacciones de todo el mes de junio de 2025. Para el rango "1 de abril al 15 de abril", el chatbot debe mostrar solo las transacciones dentro de ese rango específico. Los formatos de fecha deben ser interpretados correctamente y las transacciones deben coincidir con los datos del backend.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCST-003
+Test Case Title: Consulta de Transacciones en Cuenta sin Movimientos en el Rango
+Objetivo: Validar que el chatbot informa correctamente cuando no hay transacciones para el rango de fechas solicitado.
+Precondiciones:
+1. Usuario autenticado con una cuenta que no tiene transacciones en un rango de fechas específico (ej., cuenta nueva o inactiva).
+Pasos de la Prueba:
+1. Iniciar sesión y abrir el chatbot.
+2. Escribir "Muéstrame mis transacciones del mes pasado" (asumiendo que el usuario no tuvo actividad).
+3. Observar la respuesta del chatbot.
+Resultado Esperado: El chatbot debe informar al usuario que no se encontraron transacciones en el rango de fechas especificado (ej., "No se encontraron transacciones para el período solicitado. ¿Hay otro rango de fechas que te interese?").
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Productos Financieros
+
+Test Case ID: TSFCPF-001
+Test Case Title: Solicitud de Información sobre Préstamos Personales (Flujo Básico)
+Objetivo: Verificar que el chatbot puede proporcionar información general y relevante sobre préstamos personales.
+Precondiciones:
+Acceso al entorno de QA del chatbot.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "Quiero información sobre préstamos personales".
+3. Observar la respuesta del chatbot.
+Resultado Esperado: El chatbot debe proporcionar una descripción general de los préstamos personales, sus características principales (montos, plazos, tasas de interés promedio) y/o un enlace a la sección de préstamos personales del sitio web del banco.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCPF-002
+Test Case Title: Preguntas Específicas sobre Productos Financieros (Tasas de Interés)
+Objetivo: Validar que el chatbot puede responder a preguntas más específicas sobre productos, como las tasas de interés.
+Precondiciones:
+Acceso al entorno de QA del chatbot.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "¿Cuáles son las tasas de interés para las hipotecas?".
+3. Observar la respuesta del chatbot.
+Resultado Esperado: El chatbot debe proporcionar información sobre las tasas de interés hipotecarias, indicando si son fijas o variables, o un rango, y/o dirigir al usuario a donde puede encontrar información detallada y actualizada (ej., "Las tasas de interés para hipotecas varían según el producto. Visita [enlace] para ver nuestras ofertas actuales.").
+Resultado Actual:
+
+
+Estado:
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Soporte General y Redirección
+
+Test Case ID: TSFCSG-001
+Test Case Title: Pregunta Frecuente (FAQ) - Horarios de Atención
+Objetivo: Verificar que el chatbot responde correctamente a una pregunta frecuente predefinida.
+Precondiciones:
+Acceso al entorno de QA del chatbot.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "¿Cuáles son los horarios de atención al cliente?".
+3. Observar la respuesta del chatbot.
+Resultado Esperado: El chatbot debe proporcionar los horarios de atención al cliente de manera clara (ej., "Nuestro equipo de atención al cliente está disponible de lunes a viernes, de 9:00 AM a 6:00 PM.").
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCSG-002
+Test Case Title: Solicitud Explícita de Hablar con un Agente (Opción Confirmada)
+Objetivo: Validar que el chatbot ofrece opciones claras y confirmadas para conectar con un agente humano.
+Precondiciones:
+Acceso al entorno de QA del chatbot.
+El sistema de transferencia a agente está simulado o activo en QA.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "Necesito hablar con una persona".
+3. Cuando el chatbot ofrezca opciones, escribir "Sí, conectar con un agente".
+4. Observar el resultado de la conexión.
+Resultado Esperado: El chatbot debe ofrecer opciones para hablar con un agente (ej., chat en vivo, llamada telefónica, agendar cita). Al confirmar la opción, debe proporcionar los detalles necesarios para la conexión (ej., enlace a chat, número de teléfono, tiempo de espera estimado si aplica).
+Resultado Actual:
+
+
+Estado:
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Manejo de Lenguaje Natural (NLU) y Errores
+
+Test Case ID: TSFCNLU-001
+Test Case Title: Manejo de Sinónimos y Variaciones de Frases (Consulta de Saldo)
+Objetivo: Verificar que el chatbot comprende la intención de "consulta de saldo" a pesar de diferentes formulaciones.
+Precondiciones:
+1. Usuario autenticado con saldo conocido.
+Pasos de la Prueba:
+1. Iniciar sesión y abrir el chatbot.
+2. Escribir "Quiero saber cuánto dinero tengo".
+3. Escribir "¿Cuál es mi balance?".
+4. Escribir "Saldo disponible".
+Resultado Esperado: En todos los casos, el chatbot debe identificar correctamente la intención de "consulta de saldo" y responder con el saldo actual de la cuenta principal del usuario, o pedir clarificación si tiene múltiples cuentas.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCNLU-002
+Test Case Title: Manejo de Errores Tipográficos Menores
+Objetivo: Asegurar que el chatbot puede inferir la intención correcta a pesar de pequeños errores de escritura del usuario.
+Precondiciones:
+Acceso al entorno de QA del chatbot.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "salod de cuentda".
+3. Escribir "ultimas transaccinones".
+Resultado Esperado: El chatbot debe intentar corregir el error tipográfico e identificar la intención correcta, o pedir confirmación al usuario (ej., "Parece que quieres consultar el saldo de tu cuenta. ¿Es correcto?"). Si la corrección es exitosa, debe proceder con la respuesta esperada para la intención correcta.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCNLU-003
+Test Case Title: Manejo de Ambigüedades sin Contexto
+Objetivo: Validar que el chatbot solicita clarificación cuando la consulta es ambigua y no hay contexto previo.
+Precondiciones:
+Acceso al entorno de QA del chatbot.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "Quiero información".
+3. Observar la respuesta del chatbot.
+Resultado Esperado: El chatbot debe reconocer la ambigüedad y pedir al usuario que especifique qué tipo de información necesita (ej., "¿Qué tipo de información te interesa? Por ejemplo, sobre productos, transacciones o tu cuenta.").
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Seguridad y Autenticación
+
+Test Case ID: TSFCSA-001
+Test Case Title: Acceso a Información Sensible sin Autenticación
+Objetivo: Verificar que el chatbot bloquea el acceso a información personal o financiera sin la autenticación adecuada.
+Precondiciones:
+1. Usuario NO autenticado.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "Muéstrame mi número de cuenta completo".
+3. Escribir "Cuál es mi dirección de email registrada?".
+Resultado Esperado: Para ambas consultas, el chatbot debe negar el acceso o solicitar autenticación/verificación de identidad antes de revelar cualquier dato sensible. No debe haber ninguna fuga de información.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCSA-002
+Test Case Title: Autenticación Exitosa a Través del Chatbot (si aplica el flujo)
+Objetivo: Validar el proceso de autenticación o verificación de identidad directamente en el chatbot.
+Precondiciones:
+1. Usuario de prueba con credenciales válidas (ej., usuario y contraseña simulados o reales de QA).
+2. Chatbot con funcionalidad de autenticación integrada.
+Pasos de la Prueba:
+1. Iniciar conversación con el chatbot.
+2. Escribir "Necesito acceder a mi cuenta".
+3. Seguir los pasos de autenticación guiados por el chatbot (ej., ingreso de usuario, contraseña, OTP si aplica).
+4. Intentar una consulta de saldo después de la autenticación.
+Resultado Esperado: El chatbot debe guiar al usuario a través de un proceso de autenticación seguro. Después de la autenticación exitosa, el usuario debe poder acceder a la información sensible solicitada (ej., el saldo).
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Módulo: Gestión de la Sesión
+
+Test Case ID: TSFCGS-001
+Test Case Title: Mantenimiento del Contexto de la Conversación
+Objetivo: Verificar que el chatbot mantiene el contexto de la conversación a través de múltiples turnos.
+Precondiciones:
+1. Usuario autenticado con múltiples cuentas (corriente y ahorros).
+Pasos de la Prueba:
+1. Iniciar sesión y abrir el chatbot.
+2. Escribir "Cuál es el saldo de mi cuenta corriente?".
+3. Después de la respuesta, escribir "Y las últimas transacciones de esa misma cuenta?".
+4. Observar la respuesta.
+Resultado Esperado: El chatbot debe entender que "esa misma cuenta" se refiere a la cuenta corriente mencionada previamente y proporcionar las últimas transacciones de esa cuenta sin necesidad de que el usuario la especifique nuevamente.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Test Case ID: TSFCGS-002
+Test Case Title: Cierre de Sesión por Inactividad
+Objetivo: Asegurar que el chatbot cierra la sesión de usuario después de un período de inactividad por seguridad.
+Precondiciones:
+1. Usuario autenticado en el chatbot.
+2. Período de inactividad configurado (ej., 5 minutos).
+Pasos de la Prueba:
+1. Iniciar sesión y autenticarse en el chatbot.
+2. Realizar una consulta (ej., "saldo").
+3. Dejar el chatbot inactivo por un tiempo ligeramente superior al período de inactividad configurado (ej., 6 minutos).
+4. Intentar realizar una nueva consulta (ej., "últimas transacciones").
+Resultado Esperado: Después del período de inactividad, el chatbot debe indicar que la sesión ha expirado por seguridad y solicitar al usuario que se autentique nuevamente para continuar con consultas sensibles.
+Resultado Actual:
+
+
+Estado:
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
