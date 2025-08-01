@@ -1,0 +1,127 @@
+Test Plan para Chatbot de Servicios Financieros
+Escrito por: Enzo Iriarte
+Fecha: 24/07/2025
+Proyecto: Chatbot de Servicios Financieros
+
+1.1 Introducción/Generalidades
+
+1.1.1 Generalidades:
+Este documento describe el plan de pruebas para el chatbot de servicios financieros. El chatbot está diseñado para asistir a los usuarios con consultas comunes sobre sus cuentas, transacciones, productos financieros y soporte general, mejorando la experiencia del cliente y reduciendo la carga de trabajo del centro de llamadas.
+
+1.1.2 Alcance:
+El alcance de las pruebas cubrirá las interacciones del usuario con el chatbot, la precisión de las respuestas, el manejo de errores, la seguridad de la información financiera y la integración con sistemas bancarios existentes. Se probarán los flujos de conversación clave, la comprensión del lenguaje natural (NLU), la generación de respuestas y la gestión de la sesión.
+
+1.1.3 Equipo / Interesados:
+Este documento está dirigido a los siguientes interesados y miembros del equipo:
+Equipo de desarrollo del Chatbot
+Product Owners
+Diseñadores de UX/UI
+Analistas de Negocio
+Equipo de Calidad (QA)
+Representantes del servicio al cliente
+Stakeholders de seguridad y cumplimiento
+
+1.2 Objetivo/Propósito del Plan de Pruebas:
+
+1.2.1 Metas:
+Asegurar que el chatbot cumpla con todos los requisitos funcionales y no funcionales.
+Validar la precisión y relevancia de las respuestas del chatbot a las consultas de los usuarios.
+Identificar y documentar defectos para su corrección oportuna.
+Garantizar una experiencia de usuario fluida y eficiente.
+Asegurar la seguridad y privacidad de la información financiera manejada por el chatbot.
+
+1.2.2 Objetivos:
+Ejecutar el 100% de los casos de prueba funcionales definidos.
+Lograr una cobertura de regresión del 90% para cada nueva iteración.
+Reducir el número de defectos críticos y mayores a cero antes del lanzamiento a producción.
+Validar el rendimiento del chatbot bajo cargas de usuario esperadas.
+Confirmar el cumplimiento de las regulaciones de seguridad financiera (ej. GDPR, PCI DSS si aplica a los datos de manejo del bot).
+
+1.3 Estrategia de Prueba:
+
+1.3.1 Tipos de Pruebas:
+Pruebas Funcionales:
+Pruebas de Conversación: Validar flujos de conversación, intenciones (intents), entidades (entities) y respuestas del chatbot para diversas consultas (ej., "saldo de cuenta", "últimas transacciones", "cómo solicito una tarjeta de crédito").
+Pruebas de Integración: Verificar la correcta comunicación del chatbot con los sistemas de backend bancarios (bases de datos de clientes, sistemas de transacciones, APIs).
+Pruebas de Precisión de Respuestas: Asegurar que las respuestas proporcionadas por el chatbot son correctas y relevantes para la consulta del usuario.
+Pruebas de Manejo de Errores: Validar cómo el chatbot maneja entradas incorrectas, ambiguas o fuera de alcance, y cómo se recupera de errores del sistema.
+Pruebas de Validación de Datos: Confirmar que los datos extraídos por el chatbot son correctos y se utilizan apropiadamente.
+Pruebas de Seguridad de la Información: Asegurar que el chatbot no expone información sensible y que cumple con los protocolos de seguridad.
+Pruebas de Personalización: Si aplica, verificar que el chatbot puede personalizar respuestas basadas en el perfil del usuario (ej., nombre, historial).
+Pruebas No Funcionales:
+Pruebas de Rendimiento y Carga: Evaluar la capacidad de respuesta y estabilidad del chatbot bajo diferentes volúmenes de usuarios y solicitudes simultáneas.
+Pruebas de Estrés: Determinar cómo se comporta el chatbot bajo condiciones extremas de carga o recursos limitados.
+Pruebas de Escalabilidad: Asegurar que el chatbot puede manejar un aumento en el número de usuarios y transacciones a medida que crece la base de clientes.
+Pruebas de Seguridad: Identificar vulnerabilidades y asegurar la protección contra accesos no autorizados, inyección de datos maliciosos, etc. (ej., OWASP Top 10 para aplicaciones web).
+Pruebas de Usabilidad: Evaluar la facilidad de uso y la experiencia del usuario con el chatbot, la claridad de las instrucciones y la fluidez de la conversación.
+Pruebas de Accesibilidad: Garantizar que el chatbot sea accesible para usuarios con discapacidades (ej., cumplimiento con WCAG).
+Pruebas de Compatibilidad: Verificar el funcionamiento del chatbot en diferentes navegadores, dispositivos y sistemas operativos.
+Pruebas de Resiliencia/Recuperación: Asegurar que el chatbot puede recuperarse de fallos del sistema o interrupciones de la red.
+
+1.3.2 Entornos de Prueba:
+Entorno de Desarrollo (DEV): Utilizado por los desarrolladores para pruebas unitarias y de integración iniciales.
+Entorno de Staging/QA: Un entorno que replica la producción lo más fielmente posible, utilizado para pruebas de integración, funcionales, de rendimiento y de seguridad exhaustivas por parte del equipo de QA.
+Entorno de Pre-producción (UAT): Utilizado para las pruebas de aceptación de usuario por parte de los stakeholders y usuarios finales clave.
+Entorno de Producción (PROD): El entorno real donde el chatbot estará disponible para los usuarios finales. Se realizarán monitoreo y pruebas de humo post-despliegue.
+
+1.3.3 Matriz de Navegadores o Dispositivos:
+Plataforma | Sistema Operativo | Navegador | Versión
+Escritorio   Windows 10          Chrome      Última
+Escritorio   macOS               Safari      Última
+Móvil        iOS                 Safari      Última
+Móvil        Android             Chrome      Última
+
+1.4 Ítems de Prueba:
+Una lista de las características o componentes del software que están sujetos a prueba. Descripciones detalladas de las funcionalidades o aspectos que se están probando.
+Módulo de Saldo de Cuenta:
+Consulta de saldo de cuenta corriente.
+Consulta de saldo de cuenta de ahorros.
+Consulta de saldo de tarjetas de crédito.
+Módulo de Transacciones:
+Consulta de últimas 5 transacciones.
+Consulta de transacciones por rango de fecha.
+Módulo de Productos Financieros:
+Información sobre préstamos personales.
+Información sobre hipotecas.
+Información sobre tarjetas de crédito.
+Información sobre seguros.
+Módulo de Soporte General:
+Preguntas frecuentes (FAQs).
+Redirección a un agente humano.
+Horarios de atención al cliente.
+Módulo de Seguridad y Autenticación:
+Proceso de verificación de identidad (si aplica).
+Manejo de información sensible.
+Integración con Core Bancario:
+Actualización de saldos en tiempo real.
+Registro de solicitudes de información.
+Manejo de Lenguaje Natural (NLU):
+Reconocimiento de intenciones y entidades clave en diversas formulaciones de preguntas.
+Manejo de ambigüedades y errores tipográficos.
+Gestión de la Sesión:
+Mantenimiento del contexto de la conversación.
+Cierre de sesión por inactividad.
+
+1.5 Entregables de Prueba:
+Casos de Prueba: Documento de casos de prueba detallados para cada ítem de prueba (enlace a herramienta de gestión de casos de prueba, ej., Jira, TestRail).
+Reportes de Defectos: Informes detallados de cualquier defecto encontrado durante las pruebas, incluyendo pasos para reproducirlos, resultados esperados y actuales, y severidad.
+Resumen de Pruebas: Documento que resume el estado de las pruebas, los resultados clave, la cobertura de pruebas, los defectos abiertos y cerrados, y la recomendación de lanzamiento.
+Logs de Pruebas: Registros detallados de la ejecución de las pruebas.
+
+1.6 Cronograma de Pruebas:
+Línea de Tiempo de la Fase de Pruebas:
+Planificación de Pruebas: 24/07/2025 - 26/07/2025
+Diseño de Casos de Prueba: 29/07/2025 - 09/08/2025
+Configuración del Entorno de QA: 05/08/2025 - 09/08/2025
+Ejecución de Pruebas Funcionales: 12/08/2025 - 30/08/2025
+Ejecución de Pruebas No Funcionales (Rendimiento, Seguridad): 02/09/2025 - 13/09/2025
+Pruebas de Aceptación del Usuario (UAT): 16/09/2025 - 27/09/2025
+Pruebas de Regresión Final y Cierre: 30/09/2025 - 04/10/2025
+Hitos Clave:
+Revisión y Aprobación del Plan de Pruebas: 26/07/2025
+Finalización del Diseño de Casos de Prueba: 09/08/2025
+Finalización de Pruebas Funcionales: 30/08/2025
+Inicio de UAT: 16/09/2025
+Cierre de Pruebas y Recomendación de Lanzamiento: 04/10/2025
+
+1.7 Riesgos y Mitigaciones:
